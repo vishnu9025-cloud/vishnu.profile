@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Work // Vishnu Inbaraj</title>
+    
+    <!-- Security Protocol Layer -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://formspree.io https://lh3.googleusercontent.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <!-- Three.js Global Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+    <canvas id="bg-canvas-3d" class="fixed inset-0 -z-10 pointer-events-none opacity-40"></canvas>
+    <div class="bg-grid-lines absolute inset-0 opacity-10 pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/5 shadow-[0_0_20px_rgba(0,210,255,0.1)]">
+        <div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+            <a href="index.html" class="text-xl font-headline font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 uppercase">
+                vishnu_inbaraj
+            </a>
+            <div class="hidden md:flex items-center gap-12 font-headline tracking-tighter uppercase text-sm">
+                <a class="text-gray-400 hover:text-white transition-colors" href="index.html">Home</a>
+                <a class="text-gray-400 hover:text-white transition-colors" href="bio.html">Bio</a>
+                <a class="text-gray-400 hover:text-white transition-colors" href="tech.html">Tech</a>
+                <a class="text-primary border-b border-primary/50 pb-1" href="work.html">Work</a>
+                <a class="text-gray-400 hover:text-white transition-colors" href="contact.html">Connect</a>
+            </div>
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="md:hidden text-primary p-2 hover:bg-white/5 rounded-lg transition-all">
+                <span class="material-symbols-outlined text-4xl">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-3xl translate-x-full transition-transform duration-500 md:hidden flex flex-col items-center justify-center gap-12 text-center p-12">
+        <button id="mobile-menu-close" class="absolute top-8 right-8 text-primary p-2">
+            <span class="material-symbols-outlined text-5xl">close</span>
+        </button>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="index.html">Home</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="bio.html">Bio</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="tech.html">Tech Stack</a>
+        <a class="text-primary font-headline text-4xl font-bold uppercase tracking-tighter" href="work.html">Portfolio</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="contact.html">Connect</a>
+    </div>
+
+    <main class="min-h-screen pt-32 pb-24 px-6 md:px-12 max-w-screen-2xl mx-auto relative z-10">
+        <header class="mb-20">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="font-label text-primary tracking-[0.3em] text-xs uppercase">03 // SELECTED_WORKS</span>
+                <div class="h-[1px] w-24 bg-gradient-to-r from-primary to-transparent"></div>
+            </div>
+            <h1 class="font-headline text-5xl md:text-8xl font-bold tracking-tighter mb-6 text-glow">
+                DIGITAL <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary text-glow uppercase">Craftsmanship</span>
+            </h1>
+            <p class="text-on-surface-variant max-w-2xl text-lg leading-relaxed">
+                A curated gallery of systems engineering and high-performance applications designed with architectural precision and aesthetic clarity.
+            </p>
+        </header>
+
+        <!-- Portfolio Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 reveal active">
+            <!-- Project 1 -->
+            <div class="group glass-card rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-500">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="images/com.jpg" alt="E-Commerce" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-grayscale duration-700"/>
+                    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-surface to-transparent"></div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-headline text-2xl font-bold mb-4 text-glow">E-Commerce Architecture</h3>
+                    <p class="text-on-surface-variant text-sm mb-8 leading-relaxed">High-throughput orchestration layer for distributed microservices. Optimized for sub-50ms latency in high-concurrency environments.</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] font-label text-primary">SPRING_BOOT</span>
+                        <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] font-label text-secondary">MYSQL</span>
+                    </div>
+                    <a href="#" class="text-primary font-label text-[10px] tracking-widest uppercase flex items-center gap-2 group-hover:gap-4 transition-all">VIEW_MANIFESTO <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="group glass-card rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-500">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd7JeR9y_71lIfciBTc_VI9txH6QuMO76K755RHE-ATObmBKxT1Oi4gXkadPjQkMir5KREz9avjlTA4qjIckS7pe0jr0d4dWPJ2AVPKSXBK3fg7XIzrV4iA4dzCv7I3cTUIXjM7WhvjS31sJlmf4FmV8kMbfMcrFe3hX7hNzfOrB_TEhf5cBTb1abpNeLt2-L6oTg6HzLh4sqO7gxTKy94aTHyHRl3MbX-vrKmGTZXJA-oOhFrSXY7M8fPo4qkRnLSQ_UjlSbfVTM" alt="E-Tender" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-grayscale duration-700"/>
+                    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-surface to-transparent"></div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-headline text-2xl font-bold mb-4 text-glow">E-Tender Web Engine</h3>
+                    <p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Secure tender publishing and BID submission engine for high-concurrency environments. Built with Spring Security & JWT.</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] font-label text-primary">SECURITY_JWT</span>
+                        <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] font-label text-secondary">POSTGRES</span>
+                    </div>
+                    <a href="#" class="text-primary font-label text-[10px] tracking-widest uppercase flex items-center gap-2 group-hover:gap-4 transition-all">VIEW_MANIFESTO <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="group glass-card rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-500">
+                <div class="h-64 overflow-hidden relative">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJCbXA2JbmFEaMjJzyN-0iE_Ud1XDOWbvt62qV5bs9_hC8HKhN0B0NqosdlQhGofd7vYL6qnPnvG6xuHo2oowF4JaagrZoSDIOOXOIN9wumcZ5da4Q-0eCvFKhjpj5cZa6Agwe-k2zKtBHwNL5D4prIyDKKCHVg65EoW56wfEW3bTL9tgxxROFl2_gFiPz1uWSVdrFv2_IdO7biurfjVDkI-VpRbo7RRbzdZZ0dqhBzKwBWtw0db1tCXBWggF4L-EPk0fKhPVj7rE" alt="Registration" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-grayscale duration-700"/>
+                    <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-surface to-transparent"></div>
+                </div>
+                <div class="p-8">
+                    <h3 class="font-headline text-2xl font-bold mb-4 text-glow">Course Registration</h3>
+                    <p class="text-on-surface-variant text-sm mb-8 leading-relaxed">Database-centric registration system with automated conflict resolution and credit monitoring.</p>
+                    <div class="flex flex-wrap gap-2 mb-8">
+                        <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] font-label text-primary">HIBERNATE</span>
+                        <span class="px-2 py-1 bg-surface-container-high rounded text-[9px] font-label text-secondary">JAVA_SE</span>
+                    </div>
+                    <a href="#" class="text-primary font-label text-[10px] tracking-widest uppercase flex items-center gap-2 group-hover:gap-4 transition-all">VIEW_MANIFESTO <span class="material-symbols-outlined text-sm">arrow_outward</span></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-full py-12 px-12 bg-black border-t border-white/5">
+        <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-700 text-[10px] font-label tracking-widest uppercase mb-4">
+            <div class="flex gap-8">
+                <a href="https://github.com/vishnu9025-cloud" class="hover:text-primary transition-colors">GITHUB</a>
+                <a href="https://www.linkedin.com/in/vishnuinbaraj2007/" class="hover:text-secondary transition-colors">LINKEDIN</a>
+            </div>
+            <div>© 2024 SYSTEM_ARCHITECT</div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

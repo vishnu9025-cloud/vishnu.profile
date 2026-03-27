@@ -1,0 +1,260 @@
+/* 
+    CYBER_OBSIDIAN // Design System Foundation
+    Designed for Vishnu Inbaraj // Architectural Integrity & Neural Performance
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+:root {
+    /* Cyber Obsidian Palette */
+    --background: #0e0e0e;
+    --surface: #131313;
+    --surface-container: #1a1919;
+    --surface-container-high: #201f1f;
+    --surface-container-highest: #262626;
+    
+    --primary: #72dcff;
+    --primary-dim: #00c3ed;
+    --primary-fixed: #00d2ff;
+    --secondary: #6d9bff;
+    --secondary-dim: #006df5;
+    --tertiary: #84a2ff;
+    
+    --on-surface: #ffffff;
+    --on-surface-variant: #adaaaa;
+    --outline-variant: #494847;
+    
+    --font-headline: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--on-surface);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Custom Selection */
+::selection {
+    background-color: rgba(114, 220, 255, 0.3);
+    color: var(--primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--surface-container-highest);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Background Patterns */
+.bg-grid-pattern {
+    background-image: radial-gradient(circle, #262626 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.bg-grid-lines {
+    background-image: linear-gradient(to right, rgba(114, 220, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(114, 220, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* Glassmorphism */
+.glass-card {
+    background: rgba(38, 38, 38, 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    background: rgba(38, 38, 38, 0.6);
+    border-color: rgba(114, 220, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(114, 220, 255, 0.1);
+}
+
+.ghost-border {
+    outline: 1px solid rgba(114, 220, 255, 0.1);
+}
+
+/* Typography & Glows */
+.text-glow {
+    text-shadow: 0 0 10px rgba(114, 220, 255, 0.4);
+}
+
+.submit-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(129, 236, 255, 0.4);
+}
+
+/* Form Styles Override & Unique Input Logic */
+input, textarea {
+    background: #000000 !important;
+    border: 1px solid var(--outline-variant);
+    color: var(--on-surface);
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    background: #000000 !important;
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(114, 220, 255, 0.3);
+    outline: none;
+}
+
+/* Override Browser Autofill (White Background Fix) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    border: 1px solid var(--primary);
+    -webkit-text-fill-color: var(--on-surface);
+    -webkit-box-shadow: 0 0 0px 1000px #000000 inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* High-Impact Unique Buttons */
+.btn-impact {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #000000 !important;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    padding: 1.25rem 2.5rem;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(114, 220, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-impact:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 0 40px rgba(114, 220, 255, 0.6);
+    letter-spacing: 0.4em;
+}
+
+.btn-impact:active {
+    transform: scale(0.98);
+}
+
+.font-label {
+    font-family: var(--font-headline);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+}
+
+/* Terminal Styles */
+.scanlines {
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 210, 255, 0.02) 50%
+    );
+    background-size: 100% 4px;
+}
+
+.perspective-terminal {
+    perspective: 1000px;
+}
+
+.tilt-card {
+    transform: rotateX(5deg) rotateY(-5deg) rotateZ(1deg);
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.tilt-card:hover {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+/* Animation Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { opacity: 0 }
+}
+
+.terminal-typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--primary);
+    width: 0;
+}
+
+.terminal-typewriter.start {
+    animation: typing 3s steps(40, end) forwards, blink .75s step-end infinite;
+}
+
+/* Message History */
+.messages-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.message-item {
+    background: var(--surface-container);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: 0.3s;
+}
+
+.message-item:hover {
+    background: var(--surface-container-high);
+    border-color: var(--primary);
+}
+
+.msg-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.msg-header strong { color: var(--primary); }
+.msg-header span { color: var(--secondary); }
+.msg-header small { color: var(--on-surface-variant); }

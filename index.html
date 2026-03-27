@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Vishnu Inbaraj // Digital Portfolio</title>
+    
+    <!-- Security Protocol Layer -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://formspree.io https://lh3.googleusercontent.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <!-- Three.js Global Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#72dcff",
+                        "secondary": "#6d9bff",
+                        "background": "#0e0e0e",
+                        "surface": "#131313",
+                        "surface-container": "#1a1919",
+                        "on-surface": "#ffffff",
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Space Grotesk"]
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+    <!-- 3D Neural Background -->
+    <canvas id="bg-canvas-3d" class="fixed inset-0 -z-10 pointer-events-none opacity-40"></canvas>
+    <div class="bg-grid-pattern absolute inset-0 opacity-10 pointer-events-none"></div>
+    <nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/5 shadow-[0_0_20px_rgba(0,210,255,0.1)]">
+        <div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+            <a href="index.html" class="text-xl font-headline font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 uppercase">
+                vishnu_inbaraj
+            </a>
+            <div class="hidden md:flex items-center gap-12 font-headline tracking-tighter uppercase text-sm">
+                <a class="text-primary border-b border-primary/50 pb-1 hover:drop-shadow-[0_0_8px_#72dcff] hover:text-white transition-all duration-300" href="index.html">Hero</a>
+                <a class="text-gray-400 hover:text-white transition-colors duration-300" href="bio.html">Bio</a>
+                <a class="text-gray-400 hover:text-white transition-colors duration-300" href="tech.html">Tech</a>
+                <a class="text-gray-400 hover:text-white transition-colors duration-300" href="work.html">Work</a>
+                <a class="text-gray-400 hover:text-white transition-colors duration-300" href="contact.html">Contact</a>
+            </div>
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="md:hidden text-primary p-2 hover:bg-white/5 rounded-lg active:scale-95 transition-all">
+                <span class="material-symbols-outlined text-4xl">menu</span>
+            </button>
+            <div class="flex items-center gap-4 text-primary">
+                <span class="material-symbols-outlined hover:drop-shadow-[0_0_8px_rgba(0,210,255,0.8)] transition-all">hub</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-3xl translate-x-full transition-transform duration-500 md:hidden flex flex-col items-center justify-center gap-12 text-center p-12">
+        <button id="mobile-menu-close" class="absolute top-8 right-8 text-primary p-2">
+            <span class="material-symbols-outlined text-5xl">close</span>
+        </button>
+        <a class="text-primary font-headline text-4xl font-bold uppercase tracking-tighter" href="index.html">Home</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="bio.html">Bio</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="tech.html">Tech Stack</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="work.html">Portfolio</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="contact.html">Connect</a>
+    </div>
+
+    <!-- Hero Section -->
+    <main class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px]"></div>
+        
+        <div class="relative z-10 container mx-auto px-6 text-center">
+            <div class="relative w-full max-w-2xl mx-auto mb-16 aspect-square md:aspect-video flex items-center justify-center">
+                <div class="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 rounded-full blur-3xl opacity-50"></div>
+                <!-- Glassmorphic Hero 3D Engine -->
+                <div class="relative z-20 w-full h-full bg-surface/40 backdrop-blur-xl border border-white/5 rounded-xl shadow-2xl flex items-center justify-center p-8 overflow-hidden group">
+                    <canvas id="home-entity-3d" class="w-full h-full"></canvas>
+                    <div class="absolute top-12 left-8 px-4 py-2 bg-surface-container-high/60 backdrop-blur-md rounded-full border border-primary/20 flex items-center gap-3">
+                        <span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#72dcff]"></span>
+                        <span class="font-label text-xs uppercase tracking-widest text-primary">CORE_LIVE</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="space-y-4">
+                    <p class="font-label text-primary tracking-[0.3em] uppercase text-sm font-medium">Architecting Digital Foundations</p>
+                    <h1 class="font-headline text-5xl md:text-8xl font-bold tracking-tighter text-on-surface leading-none uppercase">
+                        VISHNU <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">INBARAJ</span>
+                    </h1>
+                </div>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6 pt-12">
+                    <a href="work.html" class="px-10 py-5 bg-gradient-to-r from-primary to-secondary text-slate-900 font-headline font-bold uppercase tracking-widest rounded-md hover:shadow-[0_0_25px_rgba(0,210,255,0.4)] transition-all">Explore Experiments</a>
+                    <a href="contact.html" class="px-10 py-5 bg-white/5 backdrop-blur-md border border-primary/30 text-on-surface font-headline font-bold uppercase tracking-widest rounded-md hover:bg-white/10 transition-all">Initialize Connect</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-full py-12 px-12 bg-black border-t border-white/5">
+        <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-label tracking-widest uppercase text-gray-500">
+            <div>Designed by Vishnu Inbaraj</div>
+            <div class="flex gap-12 font-mono text-xs tracking-widest uppercase text-gray-400">
+                <a class="hover:text-cyan-400 transition-all" href="https://github.com/vishnu9025-cloud">GitHub</a>
+                <a class="hover:text-cyan-400 transition-all" href="https://www.linkedin.com/in/vishnuinbaraj2007/">LinkedIn</a>
+            </div>
+            <div>© 2024 / ARCHITECT_MANIFESTO</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

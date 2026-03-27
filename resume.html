@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vishnu | Resume</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Outfit', sans-serif;
+    background: #0f172a;
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 85%;
+    margin: auto;
+    padding: 50px 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 50px;
+    animation: fadeDown 1s ease forwards;
+}
+
+.section {
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s ease;
+}
+
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: #334155;
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 10px 20px;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>My Resume</h1>
+
+<div class="section">
+    <h2>Education</h2>
+    <div class="card">
+        <h3>Vel Tech Multi Tech Engineering College</h3>
+        <p>B.E Computer Science And Engineering (2024 – 2028)</p>
+    </div>
+    <div class="card">
+        <h3>St.Andrew's Matric Higher Secondary School</h3>
+        <p>Maths Biology (2022 – 2024)</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Technical Skills</h2>
+    <div class="card">Java, Spring Boot, JSP</div>
+    <div class="card">HTML, CSS, JavaScript</div>
+    <div class="card">MySQL, Git, GitHub</div>
+    <div class="card">Microsoft Office</div>
+</div>
+
+<div class="section">
+    <h2>Projects</h2>
+    <div class="card">E-Tender Website (Spring Boot)</div>
+    <div class="card">Student Management System (Java)</div>
+    <div class="card">Course Registration (JSP + MySQL)</div>
+</div>
+
+<a href="index.html" class="back-btn">⬅ Back to Portfolio</a>
+
+</div>
+
+<script>
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", () => {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            sec.classList.add("active");
+        }
+    });
+});
+</script>
+
+</body>
+</html>

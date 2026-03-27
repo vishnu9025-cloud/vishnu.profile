@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Connect // Vishnu Inbaraj</title>
+    
+    <!-- Security Protocol Layer -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://formspree.io https://lh3.googleusercontent.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <!-- Three.js Global Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+    <canvas id="bg-canvas-3d" class="fixed inset-0 -z-10 pointer-events-none opacity-40"></canvas>
+    <div class="bg-grid-lines absolute inset-0 opacity-10 pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/5 shadow-[0_0_20px_rgba(0,210,255,0.1)]">
+        <div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+            <a href="index.html" class="text-xl font-headline font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 uppercase">
+                vishnu_inbaraj
+            </a>
+            <div class="hidden md:flex items-center gap-12 font-headline tracking-tighter uppercase text-sm">
+                <a class="text-gray-400 hover:text-white transition-colors" href="index.html">Home</a>
+                <a class="text-gray-400 hover:text-white transition-colors" href="bio.html">Bio</a>
+                <a class="text-gray-400 hover:text-white transition-colors" href="tech.html">Tech</a>
+                <a class="text-gray-400 hover:text-white transition-colors" href="work.html">Work</a>
+                <a class="text-primary border-b border-primary/50 pb-1" href="contact.html">Connect</a>
+            </div>
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="md:hidden text-primary p-2 hover:bg-white/5 rounded-lg transition-all">
+                <span class="material-symbols-outlined text-4xl">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-3xl translate-x-full transition-transform duration-500 md:hidden flex flex-col items-center justify-center gap-12 text-center p-12">
+        <button id="mobile-menu-close" class="absolute top-8 right-8 text-primary p-2">
+            <span class="material-symbols-outlined text-5xl">close</span>
+        </button>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="index.html">Home</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="bio.html">Bio</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="tech.html">Tech Stack</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="work.html">Portfolio</a>
+        <a class="text-primary font-headline text-4xl font-bold uppercase tracking-tighter" href="contact.html">Connect</a>
+    </div>
+
+    <main class="min-h-screen flex items-center justify-center pt-32 pb-24 px-6 md:px-12 relative z-10">
+        <div class="max-w-4xl w-full mx-auto space-y-16 reveal active">
+            <header class="text-center space-y-4">
+                <div class="font-label text-primary tracking-[0.4em] text-xs uppercase mb-6">READY_FOR_ENGAGEMENT</div>
+                <h1 class="font-headline text-5xl md:text-8xl font-bold tracking-tighter text-glow">EXECUTE_<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary text-glow">SYNC</span></h1>
+                <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Initialize connection for intern application, backend partnership, or architectural consultation.</p>
+            </header>
+
+            <form id="contact-form" class="space-y-6 max-w-2xl mx-auto glass-card p-10 rounded-2xl border border-white/5">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input class="w-full bg-surface-container-high border border-white/10 rounded-lg px-6 py-5 text-on-surface focus:border-primary outline-none transition-all placeholder:text-gray-600 font-headline" name="name" placeholder="IDENTITY_NAME" required/>
+                    <input class="w-full bg-surface-container-high border border-white/10 rounded-lg px-6 py-5 text-on-surface focus:border-primary outline-none transition-all placeholder:text-gray-600 font-headline" name="email" placeholder="SIGNAL_ORIGIN_EMAIL" type="email" required/>
+                </div>
+                <textarea class="w-full bg-surface-container-high border border-white/10 rounded-lg px-6 py-5 text-on-surface focus:border-primary outline-none transition-all resize-none placeholder:text-gray-600 font-headline" name="message" placeholder="MESSAGE_PAYLOAD_CONTENT..." rows="4" required></textarea>
+                <button type="submit" class="w-full btn-impact submit-btn">
+                    SYNC_CONNECTION_V1.0
+                </button>
+            </form>
+
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12 pt-12 text-[10px] font-label tracking-widest text-gray-400">
+                <a href="https://github.com/vishnu9025-cloud" class="flex items-center gap-3 hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-sm">mail</span> GITHUB: vishnu9025-cloud
+                </a>
+                <a href="https://www.linkedin.com/in/vishnuinbaraj2007/" class="flex items-center gap-3 hover:text-secondary transition-colors">
+                    <span class="material-symbols-outlined text-sm">alternate_email</span> SOCIALS: @VISHNU_INBARAJ
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-full py-12 px-12 bg-black border-t border-white/5">
+        <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-700 text-[10px] font-label tracking-widest uppercase mb-4">
+            <div class="flex gap-8">
+                <a href="https://github.com/vishnu9025-cloud" class="hover:text-primary transition-colors">GITHUB</a>
+                <a href="https://www.linkedin.com/in/vishnuinbaraj2007/" class="hover:text-secondary transition-colors">LINKEDIN</a>
+            </div>
+            <div>© 2024 SYSTEM_ARCHITECT</div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

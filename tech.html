@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Tech Stack // Vishnu Inbaraj</title>
+    
+    <!-- Security Protocol Layer -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com https://formspree.io https://lh3.googleusercontent.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@300;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+    <!-- Three.js Global Engine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+    <canvas id="bg-canvas-3d" class="fixed inset-0 -z-10 pointer-events-none opacity-40"></canvas>
+    <div class="bg-grid-lines absolute inset-0 opacity-10 pointer-events-none"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/5 shadow-[0_0_20px_rgba(0,210,255,0.1)]">
+        <div class="flex justify-between items-center px-12 py-6 max-w-screen-2xl mx-auto">
+            <a href="index.html" class="text-xl font-headline font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 uppercase">
+                vishnu_inbaraj
+            </a>
+            <div class="hidden md:flex items-center gap-12 font-headline tracking-tighter uppercase text-sm">
+                <a class="text-gray-400 hover:text-white transition-colors" href="index.html">Home</a>
+                <a class="text-gray-400 hover:text-white transition-colors" href="bio.html">Bio</a>
+                <a class="text-primary border-b border-primary/50 pb-1" href="tech.html">Tech</a>
+                <a class="text-gray-400 hover:text-white transition-colors" href="work.html">Work</a>
+                <a class="text-gray-400 hover:text-white transition-colors" href="contact.html">Connect</a>
+            </div>
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="md:hidden text-primary p-2 hover:bg-white/5 rounded-lg transition-all">
+                <span class="material-symbols-outlined text-4xl">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-3xl translate-x-full transition-transform duration-500 md:hidden flex flex-col items-center justify-center gap-12 text-center p-12">
+        <button id="mobile-menu-close" class="absolute top-8 right-8 text-primary p-2">
+            <span class="material-symbols-outlined text-5xl">close</span>
+        </button>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="index.html">Home</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="bio.html">Bio</a>
+        <a class="text-primary font-headline text-4xl font-bold uppercase tracking-tighter" href="tech.html">Tech Stack</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="work.html">Portfolio</a>
+        <a class="text-gray-400 font-headline text-4xl font-bold uppercase tracking-tighter hover:text-white" href="contact.html">Connect</a>
+    </div>
+
+    <main class="min-h-screen pt-32 pb-24 px-6 md:px-12 max-w-screen-2xl mx-auto relative z-10">
+        <header class="mb-20">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="font-label text-primary tracking-[0.3em] text-xs uppercase">02 // TECHNOLOGIES</span>
+                <div class="h-[1px] w-24 bg-gradient-to-r from-primary to-transparent"></div>
+            </div>
+            <h1 class="font-headline text-5xl md:text-8xl font-bold tracking-tighter mb-6 text-glow">
+                CYBER <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary text-glow">OBSIDIAN</span> STACK
+            </h1>
+            <p class="text-on-surface-variant max-w-2xl text-lg leading-relaxed">
+                Architecting robust backends and fluid interfaces with a focus on system integrity and neural-like performance. My toolkit is optimized for high-throughput digital ecosystems.
+            </p>
+        </header>
+
+        <!-- Tech Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 reveal active">
+            <!-- Java Card -->
+            <div class="md:col-span-8 group glass-card rounded-xl p-8 flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] -mr-32 -mt-32"></div>
+                <div>
+                    <div class="flex justify-between items-start mb-12">
+                        <div class="p-4 bg-surface-container-high rounded-lg">
+                            <span class="material-symbols-outlined text-4xl text-primary">coffee</span>
+                        </div>
+                        <span class="font-label text-[10px] tracking-widest text-primary/40 uppercase">Class-based / Concurrent</span>
+                    </div>
+                    <h3 class="font-headline text-4xl font-bold mb-4">Java</h3>
+                    <p class="text-on-surface-variant max-w-md">Enterprise-grade application development with a focus on multi-threaded performance, JVM optimization, and clean architecture principles.</p>
+                </div>
+                <div class="mt-12 flex flex-wrap gap-3">
+                    <span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-label text-secondary flex items-center gap-2">JVM ECOSYSTEM</span>
+                    <span class="px-3 py-1 bg-surface-container-high rounded-full text-[10px] font-label text-secondary flex items-center gap-2">OBJECT ORIENTED</span>
+                </div>
+            </div>
+
+            <!-- Spring Boot -->
+            <div class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col justify-between border border-primary/5">
+                <div>
+                    <div class="p-4 bg-surface-container-high rounded-lg w-fit mb-8">
+                        <span class="material-symbols-outlined text-4xl text-secondary">settings_input_component</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4">Spring Boot</h3>
+                    <p class="text-on-surface-variant text-sm">Building microservices with Spring Cloud, Security, and Data JPA for rapid, scalable deployment.</p>
+                </div>
+                <div class="mt-8 pt-6 border-t border-white/5">
+                    <div class="text-[10px] font-label text-primary/60 mb-2 uppercase">Core Specialization</div>
+                    <div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden">
+                        <div class="h-full bg-primary w-[92%]"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MySQL -->
+            <div class="md:col-span-4 glass-card rounded-xl p-8 flex flex-col border border-primary/5">
+                <div class="p-4 bg-surface-container-high rounded-lg w-fit mb-8">
+                    <span class="material-symbols-outlined text-4xl text-primary">database</span>
+                </div>
+                <h3 class="font-headline text-2xl font-bold mb-4">MySQL</h3>
+                <p class="text-on-surface-variant text-sm mb-6">Relational data modeling, indexing strategies, and query optimization for high-load environments.</p>
+                <div class="mt-auto flex flex-wrap gap-2">
+                    <span class="bg-surface-container-high px-2 py-1 text-[9px] font-label rounded uppercase">ACID</span>
+                    <span class="bg-surface-container-high px-2 py-1 text-[9px] font-label rounded uppercase">Relational</span>
+                </div>
+            </div>
+
+            <!-- Frontend Core -->
+            <div class="md:col-span-8 glass-card rounded-xl p-0 flex flex-col md:flex-row border border-primary/5 overflow-hidden">
+                <div class="p-8 flex-1 flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-4 mb-8">
+                            <div class="p-3 bg-surface-container-high rounded-lg"><span class="material-symbols-outlined text-2xl text-secondary">html</span></div>
+                            <div class="p-3 bg-surface-container-high rounded-lg"><span class="material-symbols-outlined text-2xl text-primary">css</span></div>
+                        </div>
+                        <h3 class="font-headline text-3xl font-bold mb-4">Frontend Core</h3>
+                        <p class="text-on-surface-variant text-sm">Crafting semantic, accessible, and performant user interfaces using modern CSS patterns and Tailwind integration.</p>
+                    </div>
+                    <div class="mt-8 grid grid-cols-2 gap-4">
+                        <div class="bg-surface-container-low p-3 rounded-lg border-l-2 border-primary">
+                            <div class="text-[10px] font-label opacity-50">RESPONSIBILITY</div>
+                            <div class="text-sm font-headline uppercase font-bold text-primary">Fluid Layouts</div>
+                        </div>
+                        <div class="bg-surface-container-low p-3 rounded-lg border-l-2 border-secondary">
+                            <div class="text-[10px] font-label opacity-50">SEMANTICS</div>
+                            <div class="text-sm font-headline uppercase font-bold text-secondary">A11y Ready</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="w-full py-12 px-12 bg-black border-t border-white/5">
+        <div class="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center text-gray-700 text-[10px] font-label tracking-widest uppercase mb-4">
+            <div class="flex gap-8">
+                <a href="https://github.com/vishnu9025-cloud">GITHUB</a>
+                <a href="https://www.linkedin.com/in/vishnuinbaraj2007/">LINKEDIN</a>
+            </div>
+            <div>© 2024 SYSTEM_ARCHITECT</div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
